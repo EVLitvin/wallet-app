@@ -1,0 +1,47 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: wallet-app
+  datasource:
+    url: jdbc:postgresql://localhost:5432/wallet_db
+    username: admin
+    password: admin
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      maximum-pool-size: 10
+      minimum-idle: 5
+      connection-timeout: 30000
+      idle-timeout: 600000
+      max-lifetime: 1800000
+
+  liquibase:
+    change-log: classpath:db/changelog/db.changelog-master.yaml
+    enabled: true
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+        show_sql: false
+        jdbc:
+          batch_size: 50
+          fetch_size: 50
+    open-in-view: false
+  main:
+    allow-bean-definition-overriding: false
+
+logging:
+  level:
+    ru.evlitvin.wallet.aspect.LoggingAspect: INFO
+
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    operationsSorter: method
