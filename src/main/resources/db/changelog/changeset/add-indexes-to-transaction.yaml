@@ -1,0 +1,17 @@
+databaseChangeLog:
+  - changeSet:
+      id: add-indexes-to-transaction
+      author: "ev_litvin"
+      changes:
+        - createIndex:
+            indexName: "idx_wallet_id"
+            tableName: "transaction"
+            columns:
+              - column:
+                  name: "wallet_id"
+        - createIndex:
+            indexName: "idx_transaction_operation_type"
+            tableName: "transaction"
+            columns:
+              - column:
+                  name: "operation_type"

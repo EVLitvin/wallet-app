@@ -1,0 +1,28 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-transaction-table
+      author: "ev_litvin"
+      changes:
+        - createTable:
+            tableName: "transaction"
+            columns:
+              - column:
+                  name: "transaction_id"
+                  type: "UUID"
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: "wallet_id"
+                  type: "UUID"
+                  constraints:
+                    nullable: false
+              - column:
+                  name: "amount"
+                  type: "DECIMAL(19, 2)"
+                  constraints:
+                    nullable: false
+              - column:
+                  name: "operation_type"
+                  type: "VARCHAR(10)"
+                  constraints:
+                    nullable: false

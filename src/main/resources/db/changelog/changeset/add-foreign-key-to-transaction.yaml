@@ -1,0 +1,12 @@
+databaseChangeLog:
+  - changeSet:
+      id: add-foreign-key-to-transaction
+      author: "ev_litvin"
+      changes:
+        - addForeignKeyConstraint:
+            constraintName: "fk_transaction_wallet"
+            baseTableName: "transaction"
+            baseColumnNames: "wallet_id"
+            referencedTableName: "wallet"
+            referencedColumnNames: "wallet_id"
+            onDelete: "CASCADE"
