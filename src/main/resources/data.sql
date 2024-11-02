@@ -1,0 +1,1 @@
+INSERT INTO wallet (wallet_id, balance) VALUES ('63d83fbd-c131-4f8b-8c75-a2ce4e89cbb7', 5000);
